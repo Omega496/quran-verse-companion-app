@@ -7,7 +7,6 @@ import SurahCard from "@/components/SurahCard";
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 import { fetchSurahs } from "@/services/quranService";
 import { useLanguage } from "@/contexts/LanguageContext";
-import DownloadProject from "@/components/DownloadProject";
 import { Surah } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 
@@ -76,7 +75,6 @@ const HomePage = () => {
                 </CardContent>
               </Card>
             </Link>
-            <DownloadProject />
           </div>
         </div>
         
