@@ -1,4 +1,3 @@
-
 export type Language = "ar" | "en" | "bn" | "hi";
 
 export interface Verse {
@@ -7,6 +6,8 @@ export interface Verse {
   text: string;
   translation: string;
   audio_url: string;
+  surahId?: number;
+  surahName?: string;
 }
 
 export interface Surah {

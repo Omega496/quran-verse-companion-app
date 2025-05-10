@@ -2,9 +2,10 @@
 import React, { useState } from "react";
 import { Card, CardContent, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Play, Pause, Bookmark, BookmarkPlus, MessageSquarePlus } from "lucide-react";
+import { Play, Pause, Bookmark, BookmarkPlus, MessageSquarePlus, Share2 } from "lucide-react";
 import { Verse } from "@/types";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useToast } from "@/hooks/use-toast";
 
 interface VerseCardProps {
   verse: Verse;
@@ -32,7 +33,36 @@ const VerseCard: React.FC<VerseCardProps> = ({
   onAddNote
 }) => {
   const { language } = useLanguage();
+  const { toast } = useToast();
   const isRTL = language === "ar";
+  
+  const handleShare = () => {
+    // Create share text with verse content
+    const shareText = `${verse.text}\n\n${verse.translation}\n\nSurah ${surahId}, Verse ${verse.verse_number}`;
+    
+    // Use Web Share API if available
+    if (navigator.share) {
+      navigator.share({
+        title: `Quran - Surah ${surahId}, Verse ${verse.verse_number}`,
+        text: shareText,
+        url: window.location.href + `#verse-${verse.verse_number}`
+      })
+      .then(() => toast({ title: "Shared successfully" }))
+      .catch((error) => console.error('Error sharing:', error));
+    } else {
+      // Fallback - copy to clipboard
+      navigator.clipboard.writeText(shareText)
+        .then(() => toast({ 
+          title: "Copied to clipboard", 
+          description: "You can now paste and share it with your colleagues"
+        }))
+        .catch(() => toast({ 
+          title: "Could not copy", 
+          description: "Please select and copy the text manually",
+          variant: "destructive"
+        }));
+    }
+  };
   
   return (
     <Card id={`verse-${verse.verse_number}`} className={`mb-4 ${isPlaying ? 'border-primary' : ''}`}>
@@ -67,6 +97,15 @@ const VerseCard: React.FC<VerseCardProps> = ({
       </CardContent>
       
       <CardFooter className="flex justify-end space-x-2 pt-0 pb-3">
+        <Button
+          size="icon"
+          variant="ghost"
+          onClick={handleShare}
+          aria-label="Share verse"
+          title="Share with colleagues"
+        >
+          <Share2 className="h-4 w-4" />
+        </Button>
         <Button
           size="icon"
           variant="ghost"
