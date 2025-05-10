@@ -1,73 +1,111 @@
-# Welcome to your Lovable project
 
-## Project info
+# Al Quran Companion App
 
-**URL**: https://lovable.dev/projects/7fd8b411-e677-4b95-9751-593d1ec53db3
+A modern, responsive web application for reading, listening to, and studying the Quran.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- 📖 **Complete Quran Text**: All 114 surahs with Arabic text and translations
+- 🔍 **Advanced Search**: Search through the Quran for specific verses or words
+- 🔊 **Audio Recitation**: Listen to beautiful recitation of any verse
+- 🔖 **Bookmarks & Favorites**: Save your favorite verses and surahs for quick access
+- 📱 **Responsive Design**: Works on desktop, tablet, and mobile devices
+- 🌙 **Dark Mode**: Easy on the eyes with light and dark theme options
+- 🌐 **Multi-language Support**: Interface available in multiple languages
 
-**Use Lovable**
+## Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7fd8b411-e677-4b95-9751-593d1ec53db3) and start prompting.
+### Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js (v16.0 or later)
+- npm or Yarn or Bun
 
-**Use your preferred IDE**
+### Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+1. Clone the repository:
+```bash
+git clone [repository-url]
+cd quran-companion-app
 ```
 
-**Edit a file directly in GitHub**
+2. Install dependencies:
+```bash
+npm install
+# OR
+yarn install
+# OR
+bun install
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+3. Start the development server:
+```bash
+npm run dev
+# OR
+yarn dev
+# OR
+bun dev
+```
 
-**Use GitHub Codespaces**
+4. Open your browser and navigate to `http://localhost:8080`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── components/     # Reusable UI components
+├── contexts/       # React context providers
+├── hooks/          # Custom React hooks
+├── pages/          # Main application pages
+├── services/       # API and data services
+├── types/          # TypeScript type definitions
+└── utils/          # Utility functions
+```
 
-This project is built with:
+## Main Features
 
-- Vite
+### Surah Browsing
+- Browse all 114 surahs
+- View detailed information about each surah
+- Read Arabic text with translations
+
+### Audio Playback
+- Listen to professional recitations
+- Play/pause individual verses
+- Navigate between verses while listening
+
+### Search Functionality
+- Search for specific words or phrases
+- Find results across both surah names and verse content
+- View search history for quick access to previous searches
+
+### Bookmarks & Favorites
+- Bookmark verses for later reference
+- Add entire surahs to favorites
+- Easily access your saved content
+
+### Settings & Personalization
+- Change interface language
+- Toggle between light and dark theme
+- Adjust text size and other display preferences
+
+## Technologies Used
+
+- React.js
 - TypeScript
-- React
-- shadcn-ui
 - Tailwind CSS
+- Shadcn/UI Components
+- React Router
+- Tanstack Query
 
-## How can I deploy this project?
+## Contributing
 
-Simply open [Lovable](https://lovable.dev/projects/7fd8b411-e677-4b95-9751-593d1ec53db3) and click on Share -> Publish.
+Contributions are welcome! Feel free to submit pull requests or open issues for any bugs or feature requests.
 
-## Can I connect a custom domain to my Lovable project?
+## License
 
-Yes, you can!
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Credits
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- Quran text and translations provided by [AlQuran Cloud API](https://alquran.cloud/api)
+- Audio recitations by various professional reciters
