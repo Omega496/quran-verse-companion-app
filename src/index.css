@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,5 +98,16 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+  
+  .font-arabic {
+    font-family: "Amiri", "Scheherazade New", serif;
+  }
+  
+  /* Add Arabic font */
+  @font-face {
+    font-family: "Amiri";
+    src: url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap");
+    font-weight: 400 700;
   }
 }
